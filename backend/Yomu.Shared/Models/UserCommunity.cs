@@ -19,7 +19,7 @@ namespace Yomu.Shared.Models
         [StringLength(50)]
         public string CommunityId { get; set; } = null!;
         [Column("role", TypeName = "int(11)")]
-        public int Role { get; set; }
+        public Role Role { get; set; }
 
         [ForeignKey(nameof(CommunityId))]
         [InverseProperty("UserCommunities")]

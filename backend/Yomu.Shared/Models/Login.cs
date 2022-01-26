@@ -22,7 +22,7 @@ namespace Yomu.Shared.Models
         [StringLength(256)]
         public string PasswordHash { get; set; } = null!;
         [Column("role", TypeName = "int(11)")]
-        public int Role { get; set; }
+        public Role Role { get; set; }
 
         [InverseProperty(nameof(User.EmailNavigation))]
         public virtual ICollection<User> Users { get; set; }
