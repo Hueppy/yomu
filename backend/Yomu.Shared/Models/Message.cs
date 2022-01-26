@@ -21,7 +21,7 @@ namespace Yomu.Shared.Models
         [StringLength(50)]
         public string ReceiverId { get; set; } = null!;
         [Column("message", TypeName = "text")]
-        public string Message1 { get; set; } = null!;
+        public string Text { get; set; } = null!;
         [Column("send_at", TypeName = "datetime")]
         public DateTime SendAt { get; set; }
 
