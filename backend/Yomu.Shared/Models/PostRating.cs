@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Yomu.Shared.Models
@@ -20,9 +21,11 @@ namespace Yomu.Shared.Models
         [Column("rating", TypeName = "int(11)")]
         public Rating Rating { get; set; }
 
+        [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("PostRatings")]
         public virtual Post Post { get; set; } = null!;
+        [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("PostRatings")]
         public virtual User User { get; set; } = null!;

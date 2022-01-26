@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Yomu.Shared.Models
@@ -31,18 +32,23 @@ namespace Yomu.Shared.Models
         [Column("message", TypeName = "text")]
         public string Message { get; set; } = null!;
 
+        [JsonIgnore]
         [ForeignKey(nameof(ParentId))]
         [InverseProperty(nameof(Comment.InverseParent))]
         public virtual Comment? Parent { get; set; }
+        [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("Comments")]
         public virtual Post Post { get; set; } = null!;
+        [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("Comments")]
         public virtual User? User { get; set; }
+        [JsonIgnore]
         [InverseProperty(nameof(Comment.Parent))]
         public virtual ICollection<Comment> InverseParent { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("CommentId")]
         [InverseProperty(nameof(Report.Comments))]
         public virtual ICollection<Report> Reports { get; set; }

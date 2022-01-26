@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Yomu.Shared.Models
@@ -34,19 +35,25 @@ namespace Yomu.Shared.Models
         [StringLength(2048)]
         public string? Link { get; set; }
 
+        [JsonIgnore]
         [ForeignKey(nameof(CommunityId))]
         [InverseProperty("Posts")]
         public virtual Community Community { get; set; } = null!;
+        [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("Posts")]
         public virtual User? User { get; set; }
+        [JsonIgnore]
         [InverseProperty(nameof(Comment.Post))]
         public virtual ICollection<Comment> Comments { get; set; }
+        [JsonIgnore]
         [InverseProperty(nameof(Image.Post))]
         public virtual ICollection<Image> Images { get; set; }
+        [JsonIgnore]
         [InverseProperty(nameof(PostRating.Post))]
         public virtual ICollection<PostRating> PostRatings { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("PostId")]
         [InverseProperty(nameof(Report.Posts))]
         public virtual ICollection<Report> Reports { get; set; }

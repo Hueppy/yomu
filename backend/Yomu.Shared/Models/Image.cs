@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Yomu.Shared.Models
@@ -17,6 +18,7 @@ namespace Yomu.Shared.Models
         [Column("post_id", TypeName = "int(11)")]
         public int PostId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("Images")]
         public virtual Post Post { get; set; } = null!;
