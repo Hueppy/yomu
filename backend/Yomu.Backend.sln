@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yomu.Shared", "Yomu.Shared\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yomu.Api", "Yomu.Api\Yomu.Api.csproj", "{12D98E71-DEC7-4F03-AE97-FA33398C0D9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yomu.Generator", "Yomu.Generator\Yomu.Generator.csproj", "{B29938BB-EE9B-429B-B9C3-BA62D07953C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{12D98E71-DEC7-4F03-AE97-FA33398C0D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12D98E71-DEC7-4F03-AE97-FA33398C0D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12D98E71-DEC7-4F03-AE97-FA33398C0D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B29938BB-EE9B-429B-B9C3-BA62D07953C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29938BB-EE9B-429B-B9C3-BA62D07953C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29938BB-EE9B-429B-B9C3-BA62D07953C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29938BB-EE9B-429B-B9C3-BA62D07953C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
