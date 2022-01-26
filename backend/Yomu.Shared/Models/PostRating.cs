@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,7 +18,7 @@ namespace Yomu.Shared.Models
         [StringLength(50)]
         public string UserId { get; set; } = null!;
         [Column("rating", TypeName = "int(11)")]
-        public int Rating { get; set; }
+        public Rating Rating { get; set; }
 
         [ForeignKey(nameof(PostId))]
         [InverseProperty("PostRatings")]
