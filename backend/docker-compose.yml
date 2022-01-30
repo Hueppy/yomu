@@ -1,0 +1,26 @@
+version: '3.4'
+services:
+  db:
+    image: mariadb
+    hostname: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  webapp:
+    image: yomu
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /media/yomu-images:/app/images
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_PASSWORD=example
+      - DB_SERVER=mysql
