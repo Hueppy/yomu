@@ -4,12 +4,90 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(0,0,0,0);
+    -webkit-border-radius: 100px;
+  }
+  ::-webkit-scrollbar:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+  }
+  
+  ::-webkit-scrollbar-thumb:vertical {
+    background: rgba(0,0,0,0.5);
+    -webkit-border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(0,0,0,0.61); 
+    -webkit-border-radius: 100px;
+  }
+
 .outerContainer{
     max-width: 100%;
-    text-align: center;
-    align-self: center;
+}
+.mainContent{
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.mainContent a{
+    color: white;
+    text-decoration: none;
+}
+.mainContent *{
+    padding: 25px;
+}
+.mainContent .postcomments{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
+.mainContent .postcomments a:hover{
+    color: lightblue;
+}
+
+.mainContent .comments *{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+
+
+.mainContent .posts{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+.mainContent .posts a:hover{
+    color: lightblue;
+}
 .Login-form{
     text-align: center;
     padding: 40px;
