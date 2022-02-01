@@ -1,0 +1,47 @@
+body{
+    background-color: #1A1A1B;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.outerContainer{
+    max-width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+.Login-form{
+    text-align: center;
+    padding: 40px;
+}
+.Login-form .logo{
+    width: 280px;
+    height: auto;
+}
+
+.Login-form .Login-forminput {
+    margin: 10px;
+}
+
+.Login-form .Login-forminput *{
+    margin: inherit;
+    border: none;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.Login-form .Login-forminput *{
+    margin: inherit;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+}
+.Login-form .Login-forminput .username:hover{
+    background-color: lightgray;
+}
+.Login-form .Login-forminput .password:hover{
+    background-color: lightgray;
+}
+.Login-form .Login-forminput .Login-formbutton:hover{
+    background-color: lightgray;
+}
