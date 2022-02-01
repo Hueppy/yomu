@@ -23,9 +23,9 @@ namespace Yomu.Shared.Models
 
         [ForeignKey(nameof(CommunityId))]
         [InverseProperty("UserCommunities")]
-        public virtual Community Community { get; set; } = null!;
+        public virtual Community? Community { get; set; } = null!;
         [ForeignKey(nameof(UserId))]
         [InverseProperty("UserCommunities")]
-        public virtual User User { get; set; } = null!;
+        public virtual User? User { get; set; } = null!;
     }
 }

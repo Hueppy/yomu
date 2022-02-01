@@ -40,7 +40,7 @@ namespace Yomu.Shared.Models
         [JsonIgnore]
         [ForeignKey(nameof(Email))]
         [InverseProperty(nameof(Login.Users))]
-        public virtual Login EmailNavigation { get; set; } = null!;
+        public virtual Login? EmailNavigation { get; set; } = null!;
         [JsonIgnore]
         [InverseProperty(nameof(Comment.User))]
         public virtual ICollection<Comment> Comments { get; set; }

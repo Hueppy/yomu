@@ -21,6 +21,6 @@ namespace Yomu.Shared.Models
         [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("Images")]
-        public virtual Post Post { get; set; } = null!;
+        public virtual Post? Post { get; set; } = null!;
     }
 }

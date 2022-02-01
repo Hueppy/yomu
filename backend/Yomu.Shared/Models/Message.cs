@@ -27,9 +27,9 @@ namespace Yomu.Shared.Models
 
         [ForeignKey(nameof(ReceiverId))]
         [InverseProperty(nameof(User.MessageReceivers))]
-        public virtual User Receiver { get; set; } = null!;
+        public virtual User? Receiver { get; set; } = null!;
         [ForeignKey(nameof(SenderId))]
         [InverseProperty(nameof(User.MessageSenders))]
-        public virtual User Sender { get; set; } = null!;
+        public virtual User? Sender { get; set; } = null!;
     }
 }

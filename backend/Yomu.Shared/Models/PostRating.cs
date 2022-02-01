@@ -24,10 +24,10 @@ namespace Yomu.Shared.Models
         [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("PostRatings")]
-        public virtual Post Post { get; set; } = null!;
+        public virtual Post? Post { get; set; } = null!;
         [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("PostRatings")]
-        public virtual User User { get; set; } = null!;
+        public virtual User? User { get; set; } = null!;
     }
 }

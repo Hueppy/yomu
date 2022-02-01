@@ -39,7 +39,7 @@ namespace Yomu.Shared.Models
         [JsonIgnore]
         [ForeignKey(nameof(PostId))]
         [InverseProperty("Comments")]
-        public virtual Post Post { get; set; } = null!;
+        public virtual Post? Post { get; set; } = null!;
         [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("Comments")]

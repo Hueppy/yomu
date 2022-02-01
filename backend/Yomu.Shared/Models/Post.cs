@@ -38,7 +38,7 @@ namespace Yomu.Shared.Models
         [JsonIgnore]
         [ForeignKey(nameof(CommunityId))]
         [InverseProperty("Posts")]
-        public virtual Community Community { get; set; } = null!;
+        public virtual Community? Community { get; set; } = null!;
         [JsonIgnore]
         [ForeignKey(nameof(UserId))]
         [InverseProperty("Posts")]
