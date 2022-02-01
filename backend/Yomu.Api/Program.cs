@@ -15,6 +15,7 @@ using Yomu.Shared.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+const string anyOriginPolicy = "anyOriginPolicy";
 
 builder.Services.AddDbContext<YomuContext>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
@@ -24,6 +25,16 @@ builder.Services.AddSingleton<ImageService, ImageService>();
 
 builder.Services.AddAuthentication("Basic")
 	.AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", (o) => {});
+
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy(anyOriginPolicy, b =>
+    {
+        b.AllowAnyHeader()
+         .AllowAnyMethod()
+         .AllowAnyOrigin();
+    });
+});
 
 builder.Services.AddControllers((c) => 
 {
@@ -72,6 +83,12 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+app.Use((context, next) =>
+{
+    context.Response.Headers["Access-Control-Allow-Origin"] = "*";
+    return next.Invoke();
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -81,6 +98,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(anyOriginPolicy);
 //app.UseAuthorization();
 app.UseAuthentication();
 
