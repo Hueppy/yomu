@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yomu.Api.Services;
 using Yomu.Shared.Contexts;
@@ -19,6 +20,7 @@ public class ImageController : ControllerBase
         this.images = images;
 	}
 
+    [AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<ActionResult> Get(string id)
     {
