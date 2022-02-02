@@ -4,9 +4,10 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Posts from "./Pages/Posts";
-
+import { Buffer } from 'buffer';
 
 function App() {
+  window.Buffer = Buffer;
   return (
     <Router>
       <Switch>
