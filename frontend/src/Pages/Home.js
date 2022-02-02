@@ -1,39 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
 import SwaggerClient from 'swagger-client';
-import { useCookies } from "react-cookie";
-import { useHistory } from "react-router-dom";
-import { Buffer } from 'buffer';
+import { withCookies } from "react-cookie";
+import { withRouter } from "react-router-dom";
 
-function Home() {
-    let history = useHistory();
-    const [items, setItems] = useState("");
-    const [cookies, setCookie] = useCookies(["user"]);
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: [],
+            cookies: props.cookies.cookies,
+            history: props.history
+        }
+    }
 
-    window.Buffer = Buffer;
+    componentDidMount() {
+        new SwaggerClient({ url: 'http://localhost/swagger/v1/swagger.json', authorizations: { basic: { username: this.state.cookies.Name, password: this.state.cookies.Password } } })
+            .then(
+                client => client.apis.Home.get_Home({}, {}),
+                reason => console.error('failed to load the spec: ' + reason)
+            )
+            .then(
+                result => this.setState({items: result.body.map((x) => <p><a href={`/post/${x.id}`}>{x.text}</a></p>)}),
+                reason => console.error('failed on api call: ' + reason)
+            )
+    }
 
-    new SwaggerClient({ url: 'http://localhost/swagger/v1/swagger.json', authorizations: { basic: { username: cookies.Name, password: cookies.Password } } })
-        .then(
-            client => client.apis.Home.get_Home({}, {}),
-            reason => console.error('failed to load the spec: ' + reason)
-        )
-        .then(
-            result => setItems(result.body.map((x) => <p><a href={`/post/${x.id}`}>{x.text}</a></p>)),
-            reason => console.error('failed on api call: ' + reason)
-        )
-
-    return (
-        <div>
-            <div className="outerContainer">
-                <div className="mainContent">
-                    <h1>Posts</h1>
-                    <div className="posts">
-                        {items}
+    render() {
+        return (
+            <div>
+                <div className="outerContainer">
+                    <div className="mainContent">
+                        <h1>Posts</h1>
+                        <div className="posts">
+                            {this.state.items}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default Home;
+export default withRouter(withCookies(Home));
